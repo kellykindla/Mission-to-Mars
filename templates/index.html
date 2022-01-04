@@ -10,20 +10,27 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
   </head>
-  <body>
+  <body style="background-color:lightslategray";>
     <div class="container">
       <!-- Add Jumbotron to Header -->
-      <div class="jumbotron text-center">
-        <h1>Mission to Mars</h1>
+      <div class=" text-center">
+        <div
+          class="bg-image"
+          style="
+          background-image: url('https://planetarium.truman.edu/files/2017/10/Space-background.jpg');"> 
+        <div class = "text-danger">
+        <h1>Mission to Mars</h1></div>
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-danger btn-lg active" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
       </div>
       <!-- Add section for Mars News -->
       <div class="row" id="mars-news">
         <div class="col-md-12">
           <div class="media">
             <div class="media-body">
-              <h2>Latest Mars News</h2>
+              <div class = "text-danger">
+              <h2>Latest Mars News</h2></div>
               <h4 class="media-heading">{{ mars.news_title }}</h4>
               <p>{{ mars.news_paragraph }}</p>
             </div>
@@ -33,7 +40,8 @@
       <!-- Section for Featured Image and Facts table -->
       <div class="row" id="mars-featured-image">
         <div class="col-md-8">
-          <h2>Featured Mars Image</h2>
+          <div class = "text-danger">
+          <h2>Featured Mars Image</h2></div>
           <img
             src="{{mars.featured_image }}"
             class="img-responsive"
@@ -43,7 +51,8 @@
         <div class="col-md-4">
           <!-- Mars Facts -->
           <div class="row" id="mars-facts">
-            <h4>Mars Facts</h4>
+            <div class = "text-danger">
+            <h2>Mars Facts</h2></div>
             {{ mars.facts | safe }}
           </div>
         </div>
@@ -51,7 +60,8 @@
       <!-- Section for Hemisphere Data -->
       <div class="row" id="hemisphere_title">
         <div class="header">
-            <h2> Mars Hemispheres </h2>
+          <div class = "text-danger">
+            <h2> Mars Hemispheres </h2></div>
         </div>
       </div>
       <div class="row" id="hemisphere_data"></div>
@@ -59,7 +69,7 @@
         <div class="row" id="mars-hemisphres"></div>
         {% for hemisphere in mars.hemisphere_images_urls %}
         <div class=" col-md-3 ">
-            <img src="{{hemisphere.img_url}}" class="img-responsive" alt="Responsive image" />
+            <img src="{{hemisphere.img_url}}" alt="Responsive image" class="img-thumbnail" !important/>
             <h3>{{hemisphere.title}}</h3>
         </div>
         {%endfor%}
